@@ -25,9 +25,6 @@ export default function Home() {
                         <p className="text-xl text-primary/80">
                             Realce sua beleza natural com nossos tratamentos especializados
                         </p>
-                        <button className="bg-gold hover:bg-gold-dark text-white px-6 py-3 rounded-xl text-lg transition">
-                            Agende sua consulta
-                        </button>
                     </div>
                     <div className="md:w-1/2 flex justify-center">
                         <Image
