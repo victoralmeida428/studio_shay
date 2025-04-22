@@ -4,18 +4,10 @@ import Menu from "@/ui/menu/menu";
 import { MENU_HEIGHT } from "@/components/menu/NavBar";
 import Image from "next/image";
 import {FaInstagram} from "react-icons/fa";
+import {SERVICOS} from "@/utils/data";
 
 export default function Home() {
-    const servicos = [
-        { id: 1, nome: "Designer de sobrancelhas", categoria: "Sobrancelhas" },
-        { id: 2, nome: "Brow Lamination", categoria: "Sobrancelhas" },
-        { id: 3, nome: "Micropigmentação", categoria: "Sobrancelhas" },
-        { id: 4, nome: "Hidratação labial e de sobrancelhas", categoria: "Hidratação" },
-        { id: 5, nome: "Hidra Gloss", categoria: "Labial" },
-        { id: 6, nome: "Depilação (linha, cera e corporal)", categoria: "Depilação" },
-        { id: 7, nome: "Esfoliação corporal", categoria: "Corporal" },
-        { id: 8, nome: "Banho dourado", categoria: "Corporal" }
-    ];
+
 
     return (
         <div className="flex flex-col min-h-screen bg-beige text-dark font-sans">
@@ -64,7 +56,7 @@ export default function Home() {
                         Nossos Serviços
                     </h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                        {servicos.map((servico) => (
+                        {SERVICOS.map((servico) => (
                             <div
                                 id={`servico-${servico.id}`}
                                 key={servico.id}
@@ -87,7 +79,7 @@ export default function Home() {
                                         />
                                     </svg>
                                 </div>
-                                <h3 className="text-xl font-semibold text-primary">{servico.nome}</h3>
+                                <a href={`/service/${servico.id}`}><h3 className="text-xl font-semibold text-primary">{servico.nome}</h3></a>
                                 <p className="text-sm text-primary/80 mt-1">{servico.categoria}</p>
                             </div>
                         ))}

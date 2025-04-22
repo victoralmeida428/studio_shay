@@ -6,6 +6,9 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ImWhatsapp } from "react-icons/im";
 import { FiMenu, FiX } from "react-icons/fi";
+import {SERVICOS} from "@/utils/data";
+
+
 
 export default function Menu() {
     const url = usePathname();
@@ -14,17 +17,6 @@ export default function Menu() {
     const phoneNumber = "5521920011394";
     const message = "Olá, gostaria de agendar uma sessão";
     const phoneURL = `https://api.whatsapp.com/send/?phone=${phoneNumber}&text=${encodeURIComponent(message)}&type=phone_number&app_absent=0`;
-
-    const servicos = [
-        { id: 1, nome: "Designer de sobrancelhas", categoria: "Sobrancelhas" },
-        { id: 2, nome: "Brow Lamination", categoria: "Sobrancelhas" },
-        { id: 3, nome: "Micropigmentação", categoria: "Sobrancelhas" },
-        { id: 4, nome: "Hidratação labial e de sobrancelhas", categoria: "Hidratação" },
-        { id: 5, nome: "Hidra Gloss", categoria: "Labial" },
-        { id: 6, nome: "Depilação (linha, cera e corporal)", categoria: "Depilação" },
-        { id: 7, nome: "Esfoliação corporal", categoria: "Corporal" },
-        { id: 8, nome: "Banho dourado", categoria: "Corporal" }
-    ];
 
     useEffect(() => {
         setIsMenuOpen(false);
@@ -57,21 +49,21 @@ export default function Menu() {
                     {/* Menu desktop */}
                     <div className="hidden md:flex items-center space-x-6">
                         <ul className="flex space-x-6 items-center">
-                            <NavBar.Item active={url === "#inicio" } href={"#inicio"}>Início</NavBar.Item>
-                            <NavBar.Item active={url === "#sobre"}  href={"#sobre"}>Sobre</NavBar.Item>
-                            <NavBar.Dropdown title="Serviços" active={url.includes("/servico")}>
-                                {servicos.map((item) => (
+                            <NavBar.Item active={url === "#inicio" } href={"/#inicio"}>Início</NavBar.Item>
+                            <NavBar.Item active={url === "#sobre"}  href={"/#sobre"}>Sobre</NavBar.Item>
+                            <NavBar.Dropdown title="Serviços" active={url.includes("/service")}>
+                                {SERVICOS.map((item) => (
                                     <NavBar.Item
 
                                         key={item.id}
-                                        href={`#servico-${item.id}`}
+                                        href={`/service/${item.id}`}
                                         className="py-2 px-4 hover:bg-gray-100 rounded cursor-pointer text-gray-700"
                                     >
                                         {item.nome}
                                     </NavBar.Item>
                                 ))}
                             </NavBar.Dropdown>
-                            <NavBar.Item active={url === "#contato"} href={"#contato"} >Contato</NavBar.Item>
+                            <NavBar.Item active={url === "#contato"} href={"/#contato"} >Contato</NavBar.Item>
                         </ul>
                     </div>
 
@@ -91,7 +83,7 @@ export default function Menu() {
                         <ul className="flex flex-col space-y-3 px-4">
                             <NavBar.Item
                                 active={url === "#inicio"}
-                                href={"#inicio"}
+                                href={"/#inicio"}
                                 className="block py-2 px-4 hover:bg-gray-100 rounded"
                                 onClick={() => setIsMenuOpen(false)}
                             >
@@ -99,7 +91,7 @@ export default function Menu() {
                             </NavBar.Item>
                             <NavBar.Item
                                 active={url === "#sobre"}
-                                href={"#sobre"}
+                                href={"/#sobre"}
                                 className="block py-2 px-4 hover:bg-gray-100 rounded"
                                 onClick={() => setIsMenuOpen(false)}
                             >
@@ -109,16 +101,16 @@ export default function Menu() {
                             {/* Dropdown de serviços no mobile */}
                             <details className="group">
                                 <summary className="flex justify-between items-center py-2 px-4 hover:bg-gray-100 rounded cursor-pointer list-none">
-                                    <span className={`${url.includes("/servico") ? 'font-bold' : ''}`}>Serviços</span>
+                                    <span className={`${url.includes("/service") ? 'font-bold' : ''}`}>Serviços</span>
                                     <svg className="w-4 h-4 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                                     </svg>
                                 </summary>
                                 <ul className="pl-4 mt-2 space-y-2">
-                                    {servicos.map((item) => (
+                                    {SERVICOS.map((item) => (
                                         <NavBar.Item
                                             key={item.id}
-                                            href={`#servico-${item.id}`}
+                                            href={`/service/${item.id}`}
                                             className="block py-2 px-4 hover:bg-gray-100 rounded cursor-pointer text-gray-700"
                                             onClick={() => setIsMenuOpen(false)}
                                         >
@@ -130,7 +122,7 @@ export default function Menu() {
 
                             <NavBar.Item
                                 active={url === "#contato"}
-                                href={"#contato"}
+                                href={"/#contato"}
                                 className="block py-2 px-4 hover:bg-gray-100 rounded"
                                 onClick={() => setIsMenuOpen(false)}
                             >
