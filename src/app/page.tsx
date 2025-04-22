@@ -96,7 +96,7 @@ export default function Home() {
                 <section id={'contato'} className="py-16 scroll-mt-20 bg-beige">
 
                     <h2 className="text-3xl font-semibold text-center mb-12 text-primary flex justify-center">
-                        <span className={'px-4'}><a href={"https://www.instagram.com/p/DIrTMjbsCfo/"} target={'_blank'}>< FaInstagram /></a></span>Contato
+                        <span className={'px-4'}><a href={"https://www.instagram.com/studioshayoficial_?igsh=MTlnbGF3eDZyODJjbw=="} target={'_blank'}>< FaInstagram /></a></span>Contato
                     </h2>
                     <div className={'text-center flex justify-between'}>
                         <div>
