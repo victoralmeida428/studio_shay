@@ -30,8 +30,8 @@ export default function Home() {
                         <Image
                             src="/foto_principal.jpg"
                             alt="Foto de destaque"
-                            width={350}
-                            height={350}
+                            width={500}
+                            height={500}
                             className="rounded-2xl shadow-lg"
                         />
                     </div>
