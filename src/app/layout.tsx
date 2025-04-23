@@ -15,7 +15,9 @@ export const metadata: Metadata = {
         "brow lamination",
         "hidratação labial",
         "depilação",
-        "Rio de Janeiro"
+        "Rio de Janeiro",
+        "studio shay",
+        "shay"
     ],
     metadataBase: new URL('https://studio-shay.vercel.app/'), // IMPORTANTE!
     alternates: {
