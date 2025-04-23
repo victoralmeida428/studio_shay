@@ -3,7 +3,7 @@
 import Menu from "@/ui/menu/menu";
 import { MENU_HEIGHT } from "@/components/menu/NavBar";
 import Image from "next/image";
-import {FaInstagram} from "react-icons/fa";
+import {FaInstagram, FaPhone} from "react-icons/fa";
 import {SERVICOS} from "@/utils/data";
 
 export default function Home() {
@@ -102,7 +102,12 @@ export default function Home() {
                             </div>
 
                         </div>
-                        <address className="not-italic text-primary text-sm text-center">
+                        <div className={'text-primary'}>
+                            <p className={'text-primary/80'}>Contato:</p>
+                            <p className={'flex items-center italic text-sm'}><span className={'text-primary px-2'}><FaPhone /></span>(21) 92001-1394</p>
+                        </div>
+                        <address className="italic text-primary text-sm text-center">
+                            <p className={'not-italic text-primary/80'}>Endereço:</p>
                             R. Cap. Lafay, nº 170<br />
                             Casa 102<br />
                             Rio de Janeiro - RJ<br />

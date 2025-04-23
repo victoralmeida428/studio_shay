@@ -2,8 +2,41 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-    title: "Studio's Shay",
-    description: "Beleza, cuidado e propósito",
+    title: {
+        default: "Studio's Shay - Beleza, cuidado e propósito",
+        template: "%s | Studio's Shay"
+    },
+    description: "Studio especializado em design de sobrancelhas, micropigmentação e tratamentos de beleza em [sua localização]. Agende seu horário!",
+    keywords: [
+        "design de sobrancelhas",
+        "micropigmentação",
+        "beleza",
+        "estética",
+        "brow lamination",
+        "hidratação labial",
+        "depilação",
+        "Rio de Janeiro"
+    ],
+    metadataBase: new URL('https://studio-shay.vercel.app/'), // IMPORTANTE!
+    alternates: {
+        canonical: '/',
+    },
+    openGraph: {
+        title: "Studio's Shay",
+        description: "Studio especializado em design de sobrancelhas e tratamentos de beleza",
+        url: "https://studio-shay.vercel.app/",
+        siteName: "Studio's Shay",
+        images: [
+            {
+                url: "/images/og-image.jpg",
+                width: 1200,
+                height: 630,
+                alt: "Studio's Shay - Transformando sua beleza",
+            },
+        ],
+        locale: "pt_BR",
+        type: "website",
+    },
     manifest: "/manifest.json",
     icons: {
         icon: [
