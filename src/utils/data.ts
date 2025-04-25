@@ -5,6 +5,45 @@ type servsType = {
     descricao: string;
 }
 
+type priceType = {
+    id: number;
+    nome: string;
+    valor: number;
+    categoria: string;
+}
+
+
+export const PRICES: priceType[] = [
+    // SOBRANCELHA
+    { id: 1, categoria: "Sobrancelha", nome: "Sem henna", valor: 45 },
+    { id: 2, categoria: "Sobrancelha", nome: "Com henna ou tinta", valor: 60 },
+
+    // FACIAL
+    { id: 3, categoria: "Facial", nome: "Depilação face linha", valor: 80 },
+
+    // CORPORAL (primeira seção)
+    { id: 4, categoria: "Corporal", nome: "Esfoliação", valor: 70 },
+    { id: 5, categoria: "Corporal", nome: "Banho dourado", valor: 55 },
+    { id: 6, categoria: "Corporal", nome: "Esfoliação + banho dourado", valor: 120 },
+    { id: 7, categoria: "Corporal", nome: "Axila + meia perna + virilha", valor: 90 },
+    { id: 8, categoria: "Corporal", nome: "Sobrancelha + buço", valor: 60 },
+
+    // CORPORAL (segunda seção)
+    { id: 9, categoria: "Corporal", nome: "Axila", valor: 25 },
+    { id: 10, categoria: "Corporal", nome: "Buço", valor: 20 },
+    { id: 11, categoria: "Corporal", nome: "1/2 Perna", valor: 35 },
+    { id: 12, categoria: "Corporal", nome: "Perna Toda", valor: 60 },
+    { id: 13, categoria: "Corporal", nome: "Nariz", valor: 20 },
+    { id: 14, categoria: "Corporal", nome: "Queixo", valor: 18 },
+    { id: 15, categoria: "Corporal", nome: "Rosto Todo", valor: 80 },
+    { id: 16, categoria: "Corporal", nome: "Orelha", valor: 20 },
+    { id: 17, categoria: "Corporal", nome: "Abdômen", valor: 35 },
+    { id: 18, categoria: "Corporal", nome: "Costas", valor: 35 },
+    { id: 19, categoria: "Corporal", nome: "1/2 Braço", valor: 35 },
+    { id: 20, categoria: "Corporal", nome: "Braço", valor: 65 }
+];
+
+
 export const SERVICOS: servsType[] = [
     {
         id: 1,

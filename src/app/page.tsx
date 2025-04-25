@@ -4,10 +4,23 @@ import Menu from "@/ui/menu/menu";
 import { MENU_HEIGHT } from "@/components/menu/NavBar";
 import Image from "next/image";
 import {FaInstagram, FaPhone} from "react-icons/fa";
-import {SERVICOS} from "@/utils/data";
+import {PRICES, SERVICOS} from "@/utils/data";
 
 export default function Home() {
+    const pricesOrderByCategory = [...PRICES].sort((a, b) => {
+        // Primeiro ordena pela categoria (A-Z)
+        if (a.categoria < b.categoria) return -1;
+        if (a.categoria > b.categoria) return 1;
 
+        // Se a categoria for igual, ordena pelo ID (opcional)
+        return a.id - b.id;
+    });
+
+    const meio = Math.ceil(pricesOrderByCategory.length / 2);
+
+    const pricesCol1 = pricesOrderByCategory.slice(0, meio);
+    console.log(pricesCol1);
+    const pricesCol2 = pricesOrderByCategory.slice(meio);
 
     return (
         <div className="flex flex-col min-h-screen bg-beige text-dark font-sans">
@@ -30,13 +43,12 @@ export default function Home() {
                         <Image
                             src="/foto_principal.jpg"
                             alt="Foto de destaque"
-                            width={500}
-                            height={500}
+                            width={350}
+                            height={350}
                             className="rounded-2xl shadow-lg"
                         />
                     </div>
                 </section>
-
                 {/* Seção Sobre */}
                 <section id="sobre" className="text-center scroll-mt-20 py-10 max-w-3xl mx-auto ">
                     <h2 className="text-3xl font-semibold mb-4 text-primary">Sobre Nós</h2>
@@ -48,7 +60,7 @@ export default function Home() {
                 </section>
 
                 {/* Seção de Serviços */}
-                <section id={"servico"} className="scroll-mt-20 py-16 bg-beige">
+                <section id={"servico"} className="scroll-mt-20 py-16 ">
                     <h2 className="text-3xl font-semibold text-center mb-12 text-primary">
                         Nossos Serviços
                     </h2>
@@ -82,6 +94,58 @@ export default function Home() {
                         ))}
                     </div>
                 </section>
+
+                {/* Seção Preco*/}
+                <section id="preco" className="text-center scroll-mt-20 py-10 max-w-3xl mx-auto ">
+                    <h2 className="text-3xl font-semibold mb-4 text-primary">Tabela de Preço</h2>
+                    <section className={'flex flex-col md:flex-row  justify-items-stretch items-stretch text-primary/80'}>
+                        <article className={'w-full md:w-1/2'}>
+                            {pricesCol1.map((prod, index) => {
+                                if (index === 0 || pricesOrderByCategory[index - 1].categoria != prod.categoria) {
+                                    return <div key={prod.id} className={'py-1'}>
+                                        <h3 className={'text-primary font-bold text-start px-3'}>{prod.categoria}</h3>
+                                        <div className={'flex justify-between px-3 mt-2'}>
+                                            <p>{prod.nome}</p>
+                                            <p className={'font-bold'}><span>R$</span> {prod.valor.toFixed(2)}</p>
+                                        </div>
+                                    </div>
+                                }
+
+                                return <div key={prod.id} className={'flex justify-between px-3 mt-2'}>
+                                    <p>{prod.nome}</p>
+                                    <p className={'font-bold'}><span>R$</span> {prod.valor.toFixed(2)}</p>
+                                </div>
+
+                            })}
+
+                        </article>
+                        <div className={'bg-primary/50 w-1 rounded-xl hidden md:block'}></div>
+                        <article className={'md:w-1/2 w-full'}>
+                            {pricesCol2.map((prod, index) => {
+                                const lastCategory = pricesCol1[pricesCol1.length - 1].categoria;
+                                const condicao1 = index === 0 || pricesCol2[index - 1].categoria != prod.categoria
+                                const condicao2 = lastCategory !== prod.categoria
+                                if (condicao1) {
+                                    return <div key={prod.id} className={'py-1'}>
+                                        <h3 className={`${condicao1 && !condicao2 ? 'hidden md:block' : ''} text-primary font-bold text-start px-3`}>{prod.categoria}</h3>
+                                        <div className={'flex justify-between px-3 mt-2'}>
+                                            <p>{prod.nome}</p>
+                                            <p className={'font-bold'}><span>R$</span> {prod.valor.toFixed(2)}</p>
+                                        </div>
+                                    </div>
+                                }
+
+                                return <div key={prod.id} className={'flex justify-between px-3 mt-2'}>
+                                    <p>{prod.nome}</p>
+                                    <p className={'font-bold'}><span>R$</span> {prod.valor.toFixed(2)}</p>
+                                </div>
+
+                            })}
+                        </article>
+                    </section>
+                </section>
+
+                {/* Seção de Contato*/}
                 <section id={'contato'} className="py-16 scroll-mt-20 bg-beige">
 
                     <h2 className="text-3xl font-semibold text-center mb-12 text-primary flex justify-center">

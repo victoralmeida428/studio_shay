@@ -63,6 +63,7 @@ export default function Menu() {
                                     </NavBar.Item>
                                 ))}
                             </NavBar.Dropdown>
+                            <NavBar.Item href={"/#preco"}>Preço</NavBar.Item>
                             <NavBar.Item active={url === "#contato"} href={"/#contato"} >Contato</NavBar.Item>
                         </ul>
                     </div>
@@ -119,6 +120,7 @@ export default function Menu() {
                                     ))}
                                 </ul>
                             </details>
+                            <NavBar.Item href={"/#preco"} className="block py-2 px-4 hover:bg-gray-100 rounded">Preço</NavBar.Item>
 
                             <NavBar.Item
                                 active={url === "#contato"}
