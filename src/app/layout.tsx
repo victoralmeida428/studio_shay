@@ -23,6 +23,9 @@ export const metadata: Metadata = {
     alternates: {
         canonical: '/',
     },
+    verification:{
+        google: "GitZnuOqSo1eUcLgBJwlBt2L0ZOXntKt7kHD9N5qOSg"
+    },
     openGraph: {
         title: "Studio's Shay",
         description: "Studio especializado em design de sobrancelhas e tratamentos de beleza",
