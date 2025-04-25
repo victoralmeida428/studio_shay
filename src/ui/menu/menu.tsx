@@ -120,7 +120,11 @@ export default function Menu() {
                                     ))}
                                 </ul>
                             </details>
-                            <NavBar.Item href={"/#preco"} className="block py-2 px-4 hover:bg-gray-100 rounded">Preço</NavBar.Item>
+                            <NavBar.Item
+                                href={"/#preco"}
+                                className="block py-2 px-4 hover:bg-gray-100 rounded "
+                                onClick={() => setIsMenuOpen(false)}
+                            >Preço</NavBar.Item>
 
                             <NavBar.Item
                                 active={url === "#contato"}
