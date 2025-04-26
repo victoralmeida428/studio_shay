@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         canonical: '/',
     },
     verification:{
-        google: "GitZnuOqSo1eUcLgBJwlBt2L0ZOXntKt7kHD9N5qOSg"
+        google: "Qi9f_dKWLyZjGpaGa9M_tCET3dpifGwDJmcuUKpIkHs"
     },
     openGraph: {
         title: "Studio's Shay",
