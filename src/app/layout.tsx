@@ -19,7 +19,7 @@ export const metadata: Metadata = {
         "studio shay",
         "shay"
     ],
-    metadataBase: new URL('https://studio-shay.vercel.app/'), // IMPORTANTE!
+    metadataBase: new URL('https://studio-shay.com.br/'), // IMPORTANTE!
     alternates: {
         canonical: '/',
     },
@@ -29,11 +29,11 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Studio's Shay",
         description: "Studio especializado em design de sobrancelhas e tratamentos de beleza",
-        url: "https://studio-shay.vercel.app/",
+        url: "https://www.studio-shay.com.br/",
         siteName: "Studio's Shay",
         images: [
             {
-                url: "/images/og-image.jpg",
+                url: "/logo2.png",
                 width: 1200,
                 height: 630,
                 alt: "Studio's Shay - Transformando sua beleza",

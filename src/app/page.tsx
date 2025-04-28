@@ -26,7 +26,7 @@ export default function Home() {
         <div className="flex flex-col min-h-screen bg-beige text-dark font-sans">
             <Menu />
             <main
-                className="flex-1 pt-[${MENU_HEIGHT}px] px-4 md:px-16 lg:px-32"
+                className={`flex-1 pt-[${MENU_HEIGHT}px] px-4 md:px-16 lg:px-32`}
                 style={{ paddingTop: `${MENU_HEIGHT}px` }}
             >
                 {/* Seção de Boas-Vindas */}
