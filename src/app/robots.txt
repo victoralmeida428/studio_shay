@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://studio-shay.vercel.app/sitemap.xml
+Sitemap: https://www.studio-shay.com.br/sitemap.xml
