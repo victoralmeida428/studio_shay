@@ -19,7 +19,6 @@ export default function Home() {
     const meio = Math.ceil(pricesOrderByCategory.length / 2);
 
     const pricesCol1 = pricesOrderByCategory.slice(0, meio);
-    console.log(pricesCol1);
     const pricesCol2 = pricesOrderByCategory.slice(meio);
 
     return (
