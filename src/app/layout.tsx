@@ -6,7 +6,7 @@ export const metadata: Metadata = {
         default: "Studio's Shay - Beleza, cuidado e propósito",
         template: "%s | Studio's Shay"
     },
-    description: "Studio especializado em design de sobrancelhas, micropigmentação e tratamentos de beleza em [sua localização]. Agende seu horário!",
+    description: "Studio especializado em design de sobrancelhas, micropigmentação e tratamentos de beleza no Rio de Janeiro. Agende seu horário!",
     keywords: [
         "design de sobrancelhas",
         "micropigmentação",
