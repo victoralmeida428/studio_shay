@@ -10,16 +10,21 @@ type priceType = {
     nome: string;
     valor: number;
     categoria: string;
+    descricao?: string;
+    promo?: number;
 }
 
 
 export const PRICES: priceType[] = [
     // SOBRANCELHA
     { id: 1, categoria: "Sobrancelha", nome: "Sem henna", valor: 45 },
-    { id: 2, categoria: "Sobrancelha", nome: "Com henna ou tinta", valor: 60 },
+    { id: 2, categoria: "Sobrancelha", nome: "Designer + Henna/Tintura", valor: 65, promo: 50 },
+    { id: 21, categoria: "Sobrancelha", nome: "Designer de Sobrancelhas", valor: 45, promo:50 },
+    { id: 24, categoria: "Sobrancelha", nome: "Brow Lamination", valor: 120, promo:50 },
 
     // FACIAL
     { id: 3, categoria: "Facial", nome: "Depilação face linha", valor: 80 },
+    { id: 22, categoria: "Facial", nome: "Designer Personalizado", descricao:'Argiloterapia + Kit Home Care', valor: 70, promo: 50 },
 
     // CORPORAL (primeira seção)
     { id: 4, categoria: "Corporal", nome: "Esfoliação", valor: 70 },
@@ -40,7 +45,10 @@ export const PRICES: priceType[] = [
     { id: 17, categoria: "Corporal", nome: "Abdômen", valor: 35 },
     { id: 18, categoria: "Corporal", nome: "Costas", valor: 35 },
     { id: 19, categoria: "Corporal", nome: "1/2 Braço", valor: 35 },
-    { id: 20, categoria: "Corporal", nome: "Braço", valor: 65 }
+    { id: 20, categoria: "Corporal", nome: "Braço", valor: 65 },
+
+    // PACOTE
+    { id: 23, categoria: "Pacote", nome: "Pacote Restauração", descricao:'3 designers + Argiloterapia + Kit', valor: 250, promo: 50 },
 ];
 
 

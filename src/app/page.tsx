@@ -1,7 +1,7 @@
 'use client'
 
 import Menu from "@/ui/menu/menu";
-import { MENU_HEIGHT } from "@/components/menu/NavBar";
+import {MENU_HEIGHT} from "@/components/menu/NavBar";
 import Image from "next/image";
 import {FaInstagram, FaPhone} from "react-icons/fa";
 import {PRICES, SERVICOS} from "@/utils/data";
@@ -16,20 +16,23 @@ export default function Home() {
         return a.id - b.id;
     });
 
+
     const meio = Math.ceil(pricesOrderByCategory.length / 2);
 
     const pricesCol1 = pricesOrderByCategory.slice(0, meio);
     const pricesCol2 = pricesOrderByCategory.slice(meio);
 
+
     return (
         <div className="flex flex-col min-h-screen bg-beige text-dark font-sans">
-            <Menu />
+            <Menu/>
             <main
                 className={`flex-1 pt-[${MENU_HEIGHT}px] px-4 md:px-16 lg:px-32`}
-                style={{ paddingTop: `${MENU_HEIGHT}px` }}
+                style={{paddingTop: `${MENU_HEIGHT}px`}}
             >
                 {/* Seção de Boas-Vindas */}
-                <section id="inicio" className="scroll-mt-20 flex flex-col-reverse md:flex-row items-center justify-between gap-8 py-12">
+                <section id="inicio"
+                         className="scroll-mt-20 flex flex-col-reverse md:flex-row items-center justify-between gap-8 py-12">
                     <div className="md:w-1/2 space-y-6 text-center md:text-left">
                         <h1 className="text-4xl md:text-5xl font-bold text-primary">
                             Seja Bem-Vinda ao Studio Shay!
@@ -71,7 +74,8 @@ export default function Home() {
                                 className="scroll-mt-20 bg-white p-6 rounded-2xl shadow-lg text-center hover:shadow-xl transition duration-300"
                             >
                                 {/* SVG genérico com ícone simbólico */}
-                                <div className="mx-auto mb-4 w-14 h-14 flex items-center justify-center rounded-full bg-gold/10">
+                                <div
+                                    className="mx-auto mb-4 w-14 h-14 flex items-center justify-center rounded-full bg-gold/10">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         className="h-8 w-8 text-gold"
@@ -87,7 +91,8 @@ export default function Home() {
                                         />
                                     </svg>
                                 </div>
-                                <a href={`/service/${servico.id}`}><h3 className="text-xl font-semibold text-primary">{servico.nome}</h3></a>
+                                <a href={`/service/${servico.id}`}><h3
+                                    className="text-xl font-semibold text-primary">{servico.nome}</h3></a>
                                 <p className="text-sm text-primary/80 mt-1">{servico.categoria}</p>
                             </div>
                         ))}
@@ -95,9 +100,10 @@ export default function Home() {
                 </section>
 
                 {/* Seção Preco*/}
-                <section id="preco" className="text-center scroll-mt-20 py-10 max-w-3xl mx-auto ">
+                <section id="preco" className="text-center scroll-mt-20 py-10  mx-auto ">
                     <h2 className="text-3xl font-semibold mb-4 text-primary">Tabela de Preço</h2>
-                    <section className={'flex flex-col md:flex-row  justify-items-stretch items-stretch text-primary/80'}>
+                    <section
+                        className={'flex flex-col md:flex-row  justify-items-stretch items-stretch text-primary/80'}>
                         <article className={'w-full md:w-1/2'}>
                             {pricesCol1.map((prod, index) => {
                                 if (index === 0 || pricesOrderByCategory[index - 1].categoria != prod.categoria) {
@@ -128,27 +134,75 @@ export default function Home() {
                                     return <div key={prod.id} className={'py-1'}>
                                         <h3 className={`${condicao1 && !condicao2 ? 'hidden md:block' : ''} text-primary font-bold text-start px-3`}>{prod.categoria}</h3>
                                         <div className={'flex justify-between px-3 mt-2'}>
-                                            <p>{prod.nome}</p>
-                                            <p className={'font-bold'}><span>R$</span> {prod.valor.toFixed(2)}</p>
+                                            <div className={'flex flex-col items-start justify-start'}>
+                                                <p>{prod.nome}</p>
+                                                <p className={'text-sm font-normal'}>{prod.descricao && `(${prod.descricao})`}</p>
+                                            </div>
+                                            <div className="font-bold">
+                                                {!prod.promo ? (
+                                                    <div>R$ {prod.valor.toFixed(2)}</div>
+                                                ) : (
+                                                    <div
+                                                        className="flex flex-col sm:flex-row sm:items-center sm:justify-start gap-1 sm:gap-3">
+                                                        <div className="flex items-center gap-2">
+                                                            <span
+                                                                className="text-sm font-normal text-red-500 line-through">
+                                                              R$ {prod.valor.toFixed(2)}
+                                                            </span>
+                                                            <span
+                                                                className="text-xs sm:text-sm font-normal border border-red-500 text-red-500 rounded-md px-1 sm:px-2 py-0.5">
+                                                              50% OFF <sup>*</sup>
+                                                            </span>
+                                                        </div>
+                                                        <span className="text-base sm:text-lg">
+                                    R$ {(prod.valor * prod.promo / 100).toFixed(2)}
+                                  </span>
+                                                    </div>
+                                                )}
+                                            </div>
                                         </div>
                                     </div>
                                 }
 
                                 return <div key={prod.id} className={'flex justify-between px-3 mt-2'}>
                                     <p>{prod.nome}</p>
-                                    <p className={'font-bold'}><span>R$</span> {prod.valor.toFixed(2)}</p>
+                                    <div className="font-bold">
+                                        {!prod.promo ? (
+                                            <div>R$ {prod.valor.toFixed(2)}</div>
+                                        ) : (
+                                            <div
+                                                className="flex flex-col sm:flex-row sm:items-center sm:justify-start gap-1 sm:gap-3">
+                                                <div className="flex items-center gap-2">
+                                                    <span className="text-sm font-normal text-red-500 line-through">
+                                                      R$ {prod.valor.toFixed(2)}
+                                                    </span>
+                                                    <span
+                                                        className="text-xs sm:text-sm font-normal border border-red-500 text-red-500 rounded-md px-1 sm:px-2 py-0.5">
+                                                      50% OFF <sup>*</sup>
+                                                    </span>
+                                                </div>
+                                                <span className="text-base sm:text-lg">
+                                    R$ {(prod.valor * prod.promo / 100).toFixed(2)}
+                                  </span>
+                                            </div>
+                                        )}
+                                    </div>
                                 </div>
 
                             })}
                         </article>
+
                     </section>
+                    <div className={'text-red-800 text-sm text-start'}><sup>*</sup>Descontos válidos apenas para mães atípicas</div>
                 </section>
 
                 {/* Seção de Contato*/}
                 <section id={'contato'} className="py-16 scroll-mt-20 bg-beige">
 
                     <h2 className="text-3xl font-semibold text-center mb-12 text-primary flex justify-center">
-                        <span className={'px-4'}><a href={"https://www.instagram.com/studioshayoficial_?igsh=MTlnbGF3eDZyODJjbw=="} target={'_blank'}>< FaInstagram /></a></span>Contato
+                        <span className={'px-4'}><a
+                            href={"https://www.instagram.com/studioshayoficial_?igsh=MTlnbGF3eDZyODJjbw=="}
+                            target={'_blank'}>< FaInstagram/></a></span>Contato
                     </h2>
                     <div className={'text-center flex justify-between'}>
                         <div>
@@ -167,13 +221,14 @@ export default function Home() {
                         </div>
                         <div className={'text-primary'}>
                             <p className={'text-primary/80'}>Contato:</p>
-                            <p className={'flex items-center italic text-sm'}><span className={'text-primary px-2'}><FaPhone /></span>(21) 92001-1394</p>
+                            <p className={'flex items-center italic text-sm'}><span
+                                className={'text-primary px-2'}><FaPhone/></span>(21) 92001-1394</p>
                         </div>
                         <address className="italic text-primary text-sm text-center">
                             <p className={'not-italic text-primary/80'}>Endereço:</p>
-                            R. Cap. Lafay, nº 170<br />
-                            Casa 102<br />
-                            Rio de Janeiro - RJ<br />
+                            R. Cap. Lafay, nº 170<br/>
+                            Casa 102<br/>
+                            Rio de Janeiro - RJ<br/>
                             23059-160
                         </address>
 
@@ -185,7 +240,7 @@ export default function Home() {
                             src="https://www.google.com/maps?q=R.+Cap.+Lafay,+170,+Rio+de+Janeiro+-+RJ,+23059-160&output=embed"
                             width="100%"
                             height="350"
-                            style={{ border: 0 }}
+                            style={{border: 0}}
                             allowFullScreen
                             loading="lazy"
                             referrerPolicy="no-referrer-when-downgrade"
